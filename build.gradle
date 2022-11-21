@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-//    id 'java-library' //TODO: Remove or swap
     id 'maven-publish'
     id 'com.palantir.git-version' version '0.15.0'
 }
@@ -8,7 +7,7 @@ plugins {
 group 'com.github.basdxz.asmplayground'
 version gitVersion()
 
-def projectJavaVersion = JavaLanguageVersion.of(19)
+def projectJavaVersion = JavaLanguageVersion.of(17)
 
 java {
     toolchain {
@@ -21,6 +20,10 @@ repositories {
 }
 
 dependencies {
+    // ASM
+    implementation 'org.ow2.asm:asm:9.4'
+    implementation 'org.ow2.asm:asm-tree:9.4'
+
     // Lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
