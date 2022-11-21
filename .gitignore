@@ -10,3 +10,6 @@
 
 # Runtime
 /run/
+
+# Test class
+/TestClass.class
