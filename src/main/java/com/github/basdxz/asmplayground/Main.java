@@ -50,7 +50,7 @@ public class Main {
         // Returns the boolean (technically and int in bytecode) off the stack, leaving the method
         newInstructions.add(new InsnNode(IRETURN));
 
-        // The label to resume the method as normal
+        // Label to resume the method as normal
         newInstructions.add(label);
 
         // Inserts the created instructions at the start of the method
