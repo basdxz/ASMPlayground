@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+//    id 'java-library' //TODO: Remove or swap
+    id 'maven-publish'
+    id 'com.palantir.git-version' version '0.15.0'
+}
+
+group 'com.github.basdxz.asmplayground'
+version gitVersion()
+
+def projectJavaVersion = JavaLanguageVersion.of(19)
+
+java {
+    toolchain {
+        languageVersion.set(projectJavaVersion)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // JUnit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}
